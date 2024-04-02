@@ -11,6 +11,7 @@ DATABASE_PORT = "25060"
 DATABASE_TYPE = "postgres"
 DATABASE_VALIDATION_SUCCESS_KEYWORD = "Done with metastore validation [SUCCESS]"
 
+# Testing
 def generate_database_config():
     logging.info("generate_database_config")
     logging.info("----------------------------------")
