@@ -13,7 +13,6 @@ DATABASE_VALIDATION_SUCCESS_KEYWORD = "Done with metastore validation [SUCCESS]"
 
 def generate_database_config():
     logging.info("generate_database_config")
-    logging.info(os.getenv("HIVE_S3A_BASE_VALUE"))
     logging.info("----------------------------------")
     custom_endpoint_configs = generate_s3_custom_endpoint()
     return f"""

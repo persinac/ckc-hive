@@ -4,6 +4,20 @@ orbs:
   aws-cli: circleci/aws-cli@4.1
   aws-ecr: circleci/aws-ecr@9.0
 
+parameters:
+  configuration-modified:
+    type: boolean
+    default: false
+  manifests-modified:
+    type: boolean
+    default: false
+  scripts-modified:
+    type: boolean
+    default: false
+  dockerfile-modified:
+    type: boolean
+    default: false
+
 commands:
   setup_branch_name:
     description: "Setup branch character replacement"
@@ -77,6 +91,13 @@ jobs:
 
 workflows:
   build_and_deploy:
+    when:
+      or: [
+        << pipeline.parameters.configuration-modified >>,
+        << pipeline.parameters.manifests-modified >>,
+        << pipeline.parameters.scripts-modified >>,
+        << pipeline.parameters.dockerfile-modified >>
+      ]
     jobs:
       - bump_docker_tag:
           context:

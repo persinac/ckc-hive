@@ -12,3 +12,8 @@ workflows:
       - path-filtering/filter:
           base-revision: master
           config-path: .circleci/workflows.yml
+          mapping: |
+            conf/.* configuration-modified true
+            manifests/.* manifests-modified true
+            scripts/.* scripts-modified true
+            Docker* dockerfile-modified true
