@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cackalacky-hive
+  namespace: cackalacky
+  labels:
+    app: cackalacky-hive
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cackalacky-hive
+  template:
+    metadata:
+      labels:
+        app: cackalacky-hive
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+        - name: cackalacky-hive
+          image: 059039070213.dkr.ecr.us-east-1.amazonaws.com/cackalacky-hive
+          ports:
+            - name: http
+              containerPort: 9083
+          envFrom:
+            - secretRef:
+                name: dplr-token-production
+      imagePullSecrets:
+        - name: regcred

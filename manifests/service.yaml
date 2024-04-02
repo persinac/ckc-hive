@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cackalacky-hive
+  namespace: cackalacky
+  labels:
+    app: cackalacky-hive
+spec:
+  type: ClusterIP
+  ports:
+    - port: 9083
+      targetPort: 9083
+  selector:
+    app: cackalacky-hive
