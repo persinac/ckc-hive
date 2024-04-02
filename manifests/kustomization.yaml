@@ -7,4 +7,4 @@ namespace: cackalacky
 images:
 - name: 059039070213.dkr.ecr.us-east-1.amazonaws.com/cackalacky-hive
   newName: 059039070213.dkr.ecr.us-east-1.amazonaws.com/cackalacky-hive
-  newTag: master-0f0a8ddb6a2d223726e7e02c577ed5437bf3e4db
+  newTag: master-a88c6133d8e2a8b2e5e9a430aba114c0f8e71cac
