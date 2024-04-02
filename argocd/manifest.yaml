@@ -1,0 +1,16 @@
+project: default
+source:
+  repoURL: >-
+    https://persinac:<token>@github.com/persinac/ckc-hive
+  path: manifests
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: cackalacky
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - PruneLast=true
+revisionHistoryLimit: 1
